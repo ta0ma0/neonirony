@@ -104,6 +104,7 @@ def main(api_key, prompt):
             sys.exit()
         elif user_input == 'y' or user_input == '':
             # Продолжить выполнение программы
+            start_time = time.time()
             pass
         elif user_input == 'p':
             dirname = 'post_' + ''.join(random.choices(string.ascii_letters + string.digits, k=5))
@@ -113,6 +114,7 @@ def main(api_key, prompt):
             print(dalle_prompt)
             save_image(image_data, dirname)
             _write_to_file(advice + '\n\n' +  dalle_prompt, dirname)
+            start_time = time.time()
 
         while True:
             current_time = time.time()
