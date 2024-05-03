@@ -1,4 +1,4 @@
-import openai
+from  openai import OpenAI
 import time
 import os
 import random
@@ -33,29 +33,37 @@ def print_random_ascii(length=67):
 
 
 def get_gpt_advice(api_key, prompt):
-    # Получение ответа от GPT
-    openai.api_key = api_key
+    # Getting a response from GPT
 
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=800
+    client = OpenAI(api_key=api_key)
+
+    response = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": f"{prompt}",
+            }
+        ],
+        model="gpt-3.5-turbo",
     )
-
-    return response.choices[0].text.strip()
+    return response.choices[0].message.content
 
 def get_dalle_prompt(api_key, advice):
     # Получение ответа от GPT
-    openai.api_key = api_key
+    client = OpenAI(api_key=api_key)
     preprompt = "Create a request for Dall-e 3 on English languge from the one that comes after [prompt], the generated image should have an illustration of what is in the main message, the image should be in cyberpunk style"
 
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=preprompt + "[prompt]" + advice,
-        max_tokens=256
+    response = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": f"{preprompt} {prompt} {advice}",
+               
+            }
+        ],
+        model="gpt-3.5-turbo",
     )
-
-    dalle_prompt = response.choices[0].text.strip()
+    dalle_prompt = response.choices[0].message.content
 #    print(dalle_prompt)
     return dalle_prompt
 
@@ -78,6 +86,7 @@ def create_image(api_key, prompt):
 
     response = requests.post('https://api.openai.com/v1/images/generations', headers=headers, data=data)
     if response.status_code == 200:
+        print(response.status_code)
         return response.json()
     else:
         print("Something went wrong")

@@ -1,1 +1,5 @@
 Виртуалити был одним из лучших хакеров в Новом Токио. Он проник в систему компании Tyrell Corp и украл планы по созданию репликантов. Сразу же его начали преследовать агенты из Матрицы. Виртуалити смог обойти все блокировки, активировав backdoor в Лабиринте. Спасшись, он скрылся в Цитадели, где его ждал анонимный контакт по имени Кибер. Они собирались взломать основной сервер Центра и вывести из игры всех, кто хотел управлять человечеством.
+
+Please create an illustration in cyberpunk style based on the following prompt:
+
+"Virtuality was one of the best hackers in New Tokyo. He infiltrated the system of Tyrell Corp and stole plans for replicants. Immediately, he was pursued by agents from the Matrix. Virtuality was able to evade all blocks by activating a backdoor in the Labyrinth. Escaping, he hid in the Citadel, where an anonymous contact named Cyber awaited him. They planned to hack the main server of the Center and remove from the game all who sought to control humanity."
